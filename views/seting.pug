@@ -1,0 +1,25 @@
+extends layouts/default
+
+block content
+    .d-flex.m-3
+        h3.me-auto.m-0  ตั้งค่า/เพิ่มที่พัก
+        a.btn.btn-success.col-2(href=`/Admin/newRoom`) เพิ่มข้อมูล
+    div 
+        table.table
+                thead 
+                tr  
+                    th รูป
+                    th หมายเลขห้อง
+                    th ประเภท
+                    th ราคา
+                    
+                tbody
+                    each room in results
+                         tr  
+                             td
+                                img.rounded(src=room.img witch="100px" Height="100px")
+                             td #{room.name_room}
+                             td #{room.detail_room}
+                             td #{room.price_room}
+                                 a.btn.btn-primary.btn-sm.ms-1(href=`/delete/${room.id_room}`) แก้ไข
+                                 a.btn.btn-danger.btn-sm.ms-1(href=`/admin/${room.id_room}/delete`) ลบ 

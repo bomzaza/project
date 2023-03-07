@@ -1,0 +1,31 @@
+extends layouts/default
+
+block content
+      .container
+        h1.d-flex.justify-content-center จองเเทน
+        form(action="/admin/reserveAdd" method="get")
+                        div.row.d-flex.justify-content-center.mb-5
+                                div.col-md-3
+                                        label(for="") เริ่ม 
+                                        input.form-control(id="inputdate1" name="dateStart" type="date" data-provide="detepicker" data-date-language="th-th"  required)
+                                div.col-md-3
+                                        label(for="") ถึง 
+                                        input.form-control(id="inputdate2" name="dateEnd" type="date" required)
+                                div.col-md-3
+                                        label(for="inputTypeRoom") เลือกห้อง:
+                                        select.form-select(name="TypeRoom" required)
+                                                each type in room_type 
+                                                        option(value=`${type.id_room_type}` id="t") #{type.room_name_type}
+                                div.col-md-auto
+                                        button.btn.btn-primary.mt-4(onclick="sisiondate()") บันทึก
+                                        script.
+                                                function sisiondate() {
+                                                let d1 = document.getElementById('inputdate1').value
+                                                let d2 = document.getElementById('inputdate2').value
+                                                let t = document.getElementById('t').value
+                                                sessionStorage.setItem('d1', d1)
+                                                sessionStorage.setItem('d2', d2)
+                                                sessionStorage.setItem('t', t)
+                                                        }
+                                                
+                                

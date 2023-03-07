@@ -1,0 +1,25 @@
+extends layouts/default
+
+block content
+      .container
+        h1.d-flex.justify-content-center เพิ่ม Room
+        form(action="/admin/createRoom" method="post" enctype="multipart/form-data")
+            div.row   
+                div.col-md-6 
+                        label.form-label(for="inputNameRoom") รหัส/ชื่อห้อง:
+                        input.form-control(id="inputNameRoom" name="NameRoom" type="text"   required) 
+                div.col-md-6
+                        label.form-label(for="inputTypeRoom") ประเภท:
+                        select.form-select(name="TypeRoom" required)
+                                each type in room_type 
+                                        option(value=`${type.id_room_type}`) #{type.room_name_type}
+                div.col-md-12  
+                        label.form-label(for="DetailRoom") รายละเอียดห้อง:
+                        input.form-control(id="DetailRoom" name="DetailRoom" type="text")
+                div.col-md-6  
+                        label.form-label(for="priceRoom") ราคาห้อง:
+                        input.form-control(id="priceRoom" name="priceRoom" type="number")
+                div.col-md-6  
+                        label.form-label(for="img") รูปภาพ:
+                        input.form-control(id="img" name="img" type="file")
+            button.btn.btn-primary.col-12.mb-2.mt-2 บันทึก

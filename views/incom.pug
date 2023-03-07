@@ -1,0 +1,15 @@
+extends layouts/default
+
+block content
+        h1.d-flex.justify-content-center รายได้
+        form(action="/admin/checkIncom" method="get")
+                        div.row.d-flex.justify-content-center
+                                div.col-md-3
+                                        label(for="") เริ่ม 
+                                        input.form-control(id="inputdate" name="date" type="date")
+                                div.col-md-3
+                                        label(for="") ถึง 
+                                        input.form-control(id="inputdate" name="date" type="date")
+                                div.col-md-4.p-4
+                                        button.btn.btn-primary บันทึก
+                                .mb-3

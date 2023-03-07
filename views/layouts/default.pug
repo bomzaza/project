@@ -1,0 +1,34 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title ระบบจัดการผู้ใช้งาน
+    link(rel="shortcut icon", href="./favicon.ico", type="image/x-icon")
+    link(rel="stylesheet", href="/bootstrap.min.css")
+ 
+  body 
+          .container.my-4 
+            .card.shadow 
+                .crad-body.m-2 
+                  h1.d-flex.justify-content-center จัดการ 
+          div.container
+            div.row
+              div.col-md-2
+                div.btn-group-vertical.col-12.mx-auto
+                  a.btn.btn-primary.btn-lg.btn-block(href="/admin/") อนุมัติการจอง
+                  a.btn.btn-primary.btn-lg.btn-block(href="/admin/check") เช็คการจอง
+                  a.btn.btn-primary.btn-lg.btn-block(href="/admin/incom") รายได้
+                  a.btn.btn-primary.btn-lg.btn-block(href="/admin/reserve") จองแทน
+                  a.btn.btn-primary.btn-lg.btn-block(href="/admin/bill") ออกบิล
+                  a.btn.btn-primary.btn-lg.btn-block(href="/admin/seting") ตั้งค่า
+              div.col-md-10
+                div.card
+                  div.card.body
+                    block content  
+
+  script(src="/bootstrap.bundle.min.js")
+
+  
+  

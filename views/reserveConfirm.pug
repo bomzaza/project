@@ -1,0 +1,57 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title ระบบจัดการผู้ใช้งาน
+    link(rel="shortcut icon", href="./favicon.ico", type="image/x-icon")
+    link(rel="stylesheet", href="/bootstrap.min.css")
+
+  body(onload="OnLoadFunction();")
+          .container.my-4 
+            .card.shadow 
+                .crad-body.m-2 
+                  h1.d-flex.justify-content-center จัดการ 
+          div.container
+            div.row
+              div.col-md-2
+                div.btn-group-vertical.col-12.mx-auto
+                  a.btn.btn-primary.btn-lg.btn-block(href="/admin/") อนุมัติการจอง
+                  a.btn.btn-primary.btn-lg.btn-block(href="/admin/check") เช็คการจอง
+                  a.btn.btn-primary.btn-lg.btn-block(href="/admin/incom") รายได้
+                  a.btn.btn-primary.btn-lg.btn-block(href="/admin/reserve") จองแทน
+                  a.btn.btn-primary.btn-lg.btn-block(href="/admin/bill") ออกบิล
+                  a.btn.btn-primary.btn-lg.btn-block(href="/admin/seting") ตั้งค่า
+              div.col-md-10
+                div.card
+                  div.card.body
+                        .container
+                                form(action="/admin/confirm/sucsess" method="post")
+                                                div.row.d-flex.justify-content-center.mb-5
+                                                        div.col-md-6 
+                                                                label(for="") ชื่อ 
+                                                                input.form-control(id="" name="namecustomer" type="text" value=`` required)
+                                                        div.col-md-6
+                                                                label(for="") เบอร์ 
+                                                                input.form-control(id="" name="phoncustomer" type="text" maxlength="10" required)
+                                                        div.col-md-3
+                                                                label(for="") ถึง 
+                                                                input.form-control(id="inputdate1" name="dateStart" type="date" value=``  required)
+                                                        div.col-md-3
+                                                                label(for="") ถึง 
+                                                                input.form-control(id="inputdate2" name="dateEnd" type="date" value=""  required)
+                                                        div.col-md-6
+                                                                label(for="") ห้อง 
+                                                                input.form-control(id="t" name="idroom" value=`${id}` type="text"  required)
+                                                        div.col-md-auto
+                                                        button.btn.btn-primary.mt-4 บันทึก
+                                                        script.
+                                                                function OnLoadFunction() {
+                                                                let data = sessionStorage.getItem("d1")
+                                                                let data2 = sessionStorage.getItem("d2")
+                                                                //let t = sessionStorage.getItem("t")
+                                                                document.getElementById('inputdate1').value = data;
+                                                                document.getElementById('inputdate2').value = data2;
+                                                                //document.getElementById('t').value = t;
+                                                                        }

@@ -1,0 +1,21 @@
+extends layouts/default
+
+block content
+        .d-flex.m-3
+        h3.me-auto.m-0  จองแทน
+        div 
+        table.table
+                thead 
+                tr
+                    th หมายเลขห้อง
+                    th ราคา
+                    th ประเภท
+                    
+                tbody
+                    each room in roomAdd
+                         tr
+                             td #{room.name_room}
+                             td #{room.price_room}
+                             td #{room.room_name_type}
+                             td
+                                 a.btn.btn-success.btn-sm.ms-1(href=`/admin/reserve/${room.id_room}/confirm`) เลือก

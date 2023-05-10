@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title ระบบจัดการผู้ใช้งาน
+        link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+        link(rel="stylesheet", href="/bootstrap.min.css")
+    body 
+        section.vh-100
+            div.container.py-5.h-100
+                div.row.d-flex.justify-content-center.align-items-center.h-100
+                     div.col-12.col-md-8.col-lg-6.col-xl-5
+                        div.card.shadow-2-strong
+                            div.card-body.p-5.text-center
+
+                                h3.mb-5 Sign in สำหรับแอดมิน
+                                form(action="/admin/postLoginAdmin", method="post") 
+                                    div.form-outline.mb-4
+                                    label.form-label(for="typeEmailX-2") Email
+                                    input.form-control.form-control-lg(id="typeEmailX-2" name="username")
+                               
+
+                                    div.form-outline.mb-4
+                                    label.form-label Password
+                                    input.form-control.form-control-lg(type="password" name="password")
+                              
+
+                                    .my-4
+                                    button.btn.btn-primary.btn-lg.btn-block.col-12 Login
+
+                                //- hr.my-4
+
+                                
+                                //- button.btn.btn-lg.btn-block.btn-primary.mb-2 Sign in with facebook
+                                
+                            
+
+
+script(src="/bootstrap.bundle.min.js")

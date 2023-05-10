@@ -1,0 +1,63 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title LoveLy Hill หุบเขาแห่งรัก
+    link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+    link(rel="stylesheet", href="/bootstrap.min.css")
+    link(rel="stylesheet", href="/css_custom.css")
+    link(rel="stylesheet", href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    
+  body 
+      nav(class="navbar navbar-expand-lg navbar-dark bg-dark h-75 p-3 sticky-top")
+        img(src="/logo.jpg", alt="" width="50" height="50" class="")
+        button(class="navbar-toggler" type="button" 
+            data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" 
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" 
+            aria-label="Toggle navigation")
+          span(class="navbar-toggler-icon")
+        div(class="collapse navbar-collapse" id="navbarNavAltMarkup")
+          div(class="navbar-nav")
+            a(class="nav-link active" aria-current="page" href="/") 
+              h5 หน้าแรก
+            a(class="nav-link" href="/UsersService") 
+              h5 บริการ
+            a(class="nav-link" href="/Userconnect") 
+              h5 ติดต่อเรา
+        div(class="d-flex justify-content-end gap-1")
+          if !email
+           a(href="/UserLogin" type="button" class="btn btn-primary ") เข้าสู่ระบบ
+           a(href="/UserRegister" type="button" class="btn btn-warning") สมัคร
+          else 
+           div(class="dropdown") 
+             button(type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown") คุณ #{email}
+             ul(class="dropdown-menu")
+               a(class="dropdown-item" href="/UsersHistory") ข้อมูลการจอง
+               a(class="dropdown-item" href="/UsersLogout") ออกจากระบบ
+
+      block content 
+      div(class="cookie" id="cookie" style="")
+        div(class="card position-fixed bottom-0 start-0 m-2" style="width: 18rem;") 
+          div(class="card-body") 
+            h5(class="card-title") เว็บไซต์นี้ใช้คุกกี้
+            h6(class="card-subtitle mb-2 text-body-secondary")
+            p(class="card-text") เราใช้คุกกี้เพื่อเพิ่มประสิทธิภาพ และประสบการณ์ที่ดีในการใช้งานเว็บไซต์ คุณสามารถเลือกตั้งค่าความยินยอมการใช้คุกกี้ได้
+            button(href="#" id="button" class="btn btn-primary btn-sm m-3") ยอมรับทั้งหมด
+            button(href="#" id="button2" class="btn btn-danger btn-sm") ไม่ยอมรับ
+      
+
+      footer(class="mb-0 bg-light text-center text-lg-start")
+        div(class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);")
+            h6 © 2023 : LoveLy
+            a(class="text-dark" href="https://mdbootstrap.com/") LoveLy Hill
+
+  script(src="/bootstrap.bundle.min.js")
+  script(src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js")
+         
+          
+
+  
+  

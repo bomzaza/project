@@ -1,23 +1,40 @@
 extends layouts/default
 
 block content
-            h1.d-flex.justify-content-center เช็คการจอง
-            mb-3
-            table.table
-                thead 
-                    tr 
-                        th ชื่อ
-                        th เบอร์
-                        th ประเภท
-                        th 
-                tbody 
-                    tr  
-                        td  บัลลังก์
-                        td  099327855
-                        td  โดม
-                        td    
-                            a.btn.btn-success.btn-sm.ms-1(href=``) ยืนยัน
-                            a.btn.btn-danger.btn-sm.ms-1(href=``) ยกเลิก
+            div.m-4
+                h1.d-flex.justify-content-center เช็คการจอง
+                mb-3
+                div.row.d-flex.justify-content-sm-center
+                form(action="/admin/checkReserve", method="get")
+                                div.row.d-flex.justify-content-sm-center 
+                                    div.col-md-3
+                                            label(for="") หาตั้งแต่วันที่ 
+                                            input.form-control(id="inputdate" name="startDate" type="date" required)
+                                    div.col-md-3.mt-4
+                                            button.btn.btn-primary ค้นหา
+                                    .mb-3
+                if !result 
+                    h6 
+                else if result
+                    table.table
+                                    thead 
+                                        tr 
+                                            th เวลา
+                                            th ชื่อ
+                                            th เบอร์
+                                            th ห้อง
+                                    tbody
+                                        each check in result
+                                            tr  
+                                                td  #{check.Sday.toLocaleDateString('th-TH', {year: 'numeric', month: 'long', day: 'numeric'})}
+                                                td  #{check.nameuser}
+                                                td  #{check.phon}
+                                                td  #{check.room}
+
+                            
+                                           
+                    
+            
 
             
             

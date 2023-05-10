@@ -1,0 +1,22 @@
+extends layouts/USersMenu
+
+block content
+        if results.length == 0
+            div(class="container")
+                h1(class="d-flex justify-content-center") not data
+        else
+            div(class="container" style="margin-bottom: 400px")
+                table.table(class="table-dark m-5")
+                    thead
+                        tr
+                            th #
+                            th วันที่เข้า
+                            th สถานะ
+                    tbody
+                    each data in results
+                        tr
+                            th #
+                            th #{data.day_start.toLocaleDateString('th-TH', {year: 'numeric', month: 'long', day: 'numeric'})}
+                            th #{data.id_name_reserve == 0 ? "รอการยืนยัน" : "อนุมัติ"}
+
+                                

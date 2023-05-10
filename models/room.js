@@ -26,18 +26,26 @@ module.exports = {
     },
     reserve(req){
       connectionn.query(
-          'INSERT INTO `reserve`( `name`, `phon`, `day_start`, `day_end`, `name_reverve`, `status_room`, `id_room`) values (?, ?, ?, ?, ?, ?, ?)',
-          [req.body.namecustomer, req.body.phoncustomer, req.body.dateStart, req.body.dateEnd, 'Admin', 1, req.body.idroom],
+          'INSERT INTO `reserve`( `name`, `phon`, `day_start`, `day_end`, `id_name_reserve`, `status_room`, `id_room`) values (?, ?, ?, ?, ?, ?, ?)',
+          [req.body.namecustomer, req.body.phoncustomer, req.body.dateStart, req.body.dateEnd, 2, 1, req.body.idroom],
           function(err, results) {
           console.log(results);
         }
       )
+    },
+    approveFromUser (id) {
+      connectionn.query(`UPDATE reserve SET id_name_reserve = 1 WHERE id_reserve = ${id}`,
+       (err, results) => {
+        return results
+        }
+      ) 
+    },
+    daleteFromUser (id) {
+      connectionn.query(`DELETE FROM reserve WHERE id_reserve=${id}`,
+       (err, results) => {
+        return results
+        }
+      ) 
     }
-    // showRoomForerserve (id) {
-    //   connectionn.query(`SELECT * FROM ROOM WHERE id_room = ${id}`,
-    //    (err, results) => {
-    //     return results
-    //     }
-    //   ) 
-    // }
+    
 }

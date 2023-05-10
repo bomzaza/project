@@ -1,19 +1,21 @@
 extends layouts/default
 
 block content
-        h1.d-flex.justify-content-center อนุมัติการจอง
-        table.table
-                thead 
-                tr  
-                    th #
-                    th ชื่อ
-                    th เบอร์
-                    th จัดการข้อมูล
-                tbody 
-                        tr  
-                            td 1
-                            td นาย จอน สโนว?
-                            td 0993278421
-                            td
-                                a.btn.btn-success.col-3.mx-auto.me-1(href=``) อนุมัติ
-                                a.btn.btn-danger.col-3.mx-auto.me-1(href=``) ลบ
+        div.m-5
+            h1.d-flex.justify-content-center อนุมัติการจอง
+            table.table
+                    thead 
+                    tr  
+                        th ชื่อ
+                        th เวลา
+                        th เบอร์
+                        th จัดการข้อมูล
+                    tbody 
+                        each data in results
+                            tr 
+                                td #{data.name}
+                                td #{data.day_start.toLocaleDateString('th-TH', {year: 'numeric', month: 'long', day: 'numeric'})} - #{data.day_end.toLocaleDateString('th-TH', {year: 'numeric', month: 'long', day: 'numeric'})}
+                                td #{data.phon}
+                                td
+                                    a.btn.btn-success.col-5.mx-auto.me-1(href=`/admin/confirmApprove/${data.id_reserve}/approve`) อนุมัติ
+                                    a.btn.btn-danger.col-3.mx-auto.me-1(href=`/admin/confirmDelete/${+data.id_reserve}/delete`) ลบ

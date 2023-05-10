@@ -1,0 +1,71 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title LoveLy Hill หุบเขาแห่งรัก
+    link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+    link(rel="stylesheet", href="/bootstrap.min.css")
+    link(rel="stylesheet", href="/css_custom.css")
+    link(rel="stylesheet", href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+  body(onload="OnLoadFunction();")
+        nav(class="navbar navbar-expand-lg navbar-dark bg-dark h-75 p-3 sticky-top")
+            img(src="/logo.jpg", alt="" width="50" height="50" class="")
+            button(class="navbar-toggler" type="button" 
+                data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" 
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" 
+                aria-label="Toggle navigation")
+             span(class="navbar-toggler-icon")
+            div(class="collapse navbar-collapse" id="navbarNavAltMarkup")
+             div(class="navbar-nav")
+                a(class="nav-link active" aria-current="page" href="/") 
+                 h5 หน้าแรก
+                a(class="nav-link" href="/UsersService") 
+                 h5 บริการ
+                a(class="nav-link" href="/Userconnect") 
+                 h5 ติดต่อเรา
+            div(class="d-flex justify-content-end gap-1")
+             if !email
+                a(href="/UserLogin" type="button" class="btn btn-primary ") เข้าสู่ระบบ
+                a(href="/UserRegister" type="button" class="btn btn-warning") สมัคร
+             else 
+                div(class="dropdown") 
+                button(type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown") คุณ #{email}
+                  ul(class="dropdown-menu")
+                    a(class="dropdown-item" href="/UsersHistory") ข้อมูลการจอง
+                    a(class="dropdown-item" href="/UsersLogout") ออกจากระบบ
+        div(class="container")
+             div.card.p-3.m-3
+                        .container
+                                h3(class="d-flex justify-content-center") ยืนยันการจอง
+                                form(action="/UsersReserveSucsess" method="post")
+                                                div.row.d-flex.justify-content-center.mb-5
+                                                        div.col-md-6 
+                                                                label(for="") ชื่อ 
+                                                                input.form-control(id="" name="userscustomer" type="text" value=`${name_user}` readonly required)
+                                                        div.col-md-6
+                                                                label(for="") กรุณากรอกเบอร์โทร
+                                                                input.form-control(id="" name="phoncustomer" type="text" maxlength="10"  required)
+                                                        div.col-md-3
+                                                                label(for="") ถึง 
+                                                                input.form-control(id="inputdate1" name="dateStart" type="date" value=`` readonly  required)
+                                                        div.col-md-3
+                                                                label(for="") ถึง 
+                                                                input.form-control(id="inputdate2" name="dateEnd" type="date" value=""  readonly required)
+                                                        div.col-md-6
+                                                                label(for="") ห้อง 
+                                                                input.form-control(id="id_room" name="idroom" value="" type="text" readonly  required)
+                                                        div.col-md-auto
+                                                        button.btn.btn-primary.mt-4 บันทึก
+                                                        script.
+                                                            function OnLoadFunction() {
+                                                            let data = sessionStorage.getItem("d1")
+                                                            let data2 = sessionStorage.getItem("d2")
+                                                            let id_room = sessionStorage.getItem("id_room")
+                                                            document.getElementById('inputdate1').value = data;
+                                                            document.getElementById('inputdate2').value = data2;
+                                                            document.getElementById('id_room').value = id_room;
+                                                            //document.getElementById('t').value = t;
+                                                                    }

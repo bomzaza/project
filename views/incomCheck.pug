@@ -1,3 +1,37 @@
 extends layouts/default
 
 block content
+        container 
+            div.d-flex.justify-content-around
+                h1 #{dateStart}
+                H1 TO
+                H1 #{dateEnd}
+            table.table 
+                thead 
+                    tr 
+                        th ห้อง
+                        th จำนวนห้อง
+                        th ราคา
+                        th รวม
+                        th #
+                tbody
+                    - var total = 0 
+                    each incom in result
+                        tr 
+                            - total =  total+Number(incom.priceall)
+                            td #{incom.name_room}
+                            td #{incom.counttotlo}
+                            td #{incom.price}
+                            td #{incom.priceall}
+                            
+                    tr 
+                        td 
+                        td 
+                        td รวม 
+                        td #{total}
+
+                        
+                    
+                        
+            
+                    

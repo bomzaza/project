@@ -5,7 +5,7 @@ block content
         h3.me-auto.m-0  ตั้งค่า/เพิ่มที่พัก
         a.btn.btn-success.col-2(href=`/Admin/newRoom`) เพิ่มข้อมูล
     div 
-        table.table
+        table#pickle.table
                 thead 
                 tr  
                     th รูป
@@ -23,3 +23,13 @@ block content
                              td #{room.price_room}
                                  a.btn.btn-primary.btn-sm.ms-1(href=`/delete/${room.id_room}`) แก้ไข
                                  a.btn.btn-danger.btn-sm.ms-1(href=`/admin/${room.id_room}/delete`) ลบ 
+    
+    script(src='https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css')
+    script(src='https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js')
+
+    script(src='http://code.jquery.com/jquery.js')
+    script(src='js/bootstrap.min.js')
+    script.
+        $(document).ready(function() {
+            $('#pickle').DataTable();
+        });

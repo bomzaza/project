@@ -1,0 +1,56 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title ระบบจัดการผู้ใช้งาน
+        link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+        link(rel="stylesheet", href="/bootstrap.min.css")
+    body 
+        section.vh-100
+            div.container.py-5.h-100
+                div.row.d-flex.justify-content-center.align-items-center.h-100
+                     div.col-12.col-md-8.col-lg-6.col-xl-5
+                        div.card.shadow-2-strong
+                            div.card-body.p-5.text-center
+
+                                h3.mb-5 Register
+                                form(action="/Register" method="post") 
+                                    div.form-outline.mb-4
+                                    label.form-label(for="typeEmailX-2") ชื่อ
+                                    input.form-control.form-control-lg(id="typeEmailX-2" name="username" required)
+                                    
+                                    div.form-outline.mb-4
+                                    label.form-label(for="typeEmailX-2") เบอร์
+                                    input.form-control.form-control-lg(type="tel"  id="typeEmailX-2" name="phon" maxlength="10" required)
+                                    
+                                    div.form-outline.mb-4
+                                    label.form-label(for="typeEmailX-2") Email
+                                    input.form-control.form-control-lg(type="email" id="typeEmailX-2" name="email" required)
+                               
+
+                                    div.form-outline.mb-4
+                                    label.form-label Password
+                                    input.form-control.form-control-lg(type="password" name="password" required)
+                                    
+                                    div.form-outline.mb-4
+                                    label.form-label Comfrim Password
+                                    input.form-control.form-control-lg(type="password" name="confrimpassword" required)
+                              
+
+                                    .my-4
+                                    button.btn.btn-primary.btn-lg.btn-block.col-12 สมัคร
+
+                                a(href="/" class="mx-3") เข้าสุ่ระบบ
+                                a(href="/") กลับหน้าแรก
+
+                                //- hr.my-4
+
+                                
+                                //- button.btn.btn-lg.btn-block.btn-primary.mb-2 Sign in with facebook
+                                
+                            
+
+
+script(src="/bootstrap.bundle.min.js")

@@ -12,7 +12,7 @@ module.exports = (req, res) => {
             JOIN room_type
             ON room.id_room_type = room_type.id_room_type
             WHERE room.id_room  
-            NOT IN (SELECT id_room FROM reserve WHERE day_start <= '${dateStrat}' AND day_end >= '${dateEnd}') 
+            NOT IN (SELECT id_room FROM reserve WHERE day_start >= '${dateStrat}' AND day_end <= '${dateEnd}') 
             AND room.id_room_type = ${TypeRoom} LIMIT 3`,
             function(err, results) {
             //console.log(results.length)

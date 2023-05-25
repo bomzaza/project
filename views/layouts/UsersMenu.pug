@@ -10,33 +10,59 @@ html(lang="en")
     link(rel="stylesheet", href="/css_custom.css")
     link(rel="stylesheet", href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css")
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
-    
+    link(href="css/bootstrap.min.css", rel="stylesheet")
+    link(href="/font-awesome/css/font-awesome.min.css", rel="stylesheet", type="text/css")
+    link(href="/css/style.css", rel="stylesheet")
+    link(href="/fonts/antonio-exotic/stylesheet.css", rel="stylesheet")
+    link(rel="stylesheet", href="/css/lightbox.min.css")
+    link(href="/css/responsive.css", rel="stylesheet")
+    script(src="/js/jquery.min.js", type="text/javascript")
+    script(src="/js/bootstrap.min.js", type="text/javascript")
+    script(src="/js/lightbox-plus-jquery.min.js", type="text/javascript")
+    script(src="/js/instafeed.min.js", type="text/javascript")
+    script(src="/js/custom.js", type="text/javascript")
   body 
-      nav(class="navbar navbar-expand-lg navbar-dark bg-dark h-75 p-3 sticky-top")
-        img(src="/logo.jpg", alt="" width="50" height="50" class="")
-        button(class="navbar-toggler" type="button" 
-            data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" 
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" 
-            aria-label="Toggle navigation")
-          span(class="navbar-toggler-icon")
-        div(class="collapse navbar-collapse" id="navbarNavAltMarkup")
-          div(class="navbar-nav")
-            a(class="nav-link active" aria-current="page" href="/") 
-              h5 หน้าแรก
-            a(class="nav-link" href="/UsersService") 
-              h5 บริการ
-            a(class="nav-link" href="/Userconnect") 
-              h5 ติดต่อเรา
-        div(class="d-flex justify-content-end gap-1")
-          if !email
-           a(href="/UserLogin" type="button" class="btn btn-primary ") เข้าสู่ระบบ
-           a(href="/UserRegister" type="button" class="btn btn-warning") สมัคร
-          else 
-           div(class="dropdown") 
-             button(type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown") คุณ #{email}
-             ul(class="dropdown-menu")
-               a(class="dropdown-item" href="/UsersHistory") ข้อมูลการจอง
-               a(class="dropdown-item" href="/UsersLogout") ออกจากระบบ
+      header.header-container
+        .container
+          .top-row
+            .row
+              .col-md-2.col-sm-6.col-xs-6
+                #logo
+                  a(href="/")
+                    span Lovely
+                    | H i l l
+              .col-sm-6.visible-sm
+                .text-right
+                  button.book-now-btn(type="button") Book Now
+              .col-md-8.col-sm-12.col-xs-12.remove-padd
+                nav.navbar.navbar-default
+                  .navbar-header.page-scroll
+                    button.navbar-toggle(data-target=".navbar-ex1-collapse", data-toggle="collapse", type="button")
+                      span.sr-only Toggle navigation
+                      span.icon-bar
+                      span.icon-bar
+                      span.icon-bar
+                  .collapse.navigation.navbar-collapse.navbar-ex1-collapse.remove-space
+                    ul.list-unstyled.nav1.cl-effect-10
+                      li
+                        a.active(data-hover="หน้าแรก" , href="/")
+                          span หน้าแรก
+                      li
+                        a(data-hover="บริการ", href="/UsersService")
+                          span บริการ
+                      li
+                        a(data-hover="ติดต่อเรา", href="/Userconnect")
+                          span ติดต่อเรา
+              .col-md-2.col-sm-4.col-xs-12.hidden-sm
+                .text-right
+                if !email
+                  a(href="/UserLogin")
+                    button.book-now-btn(type="button") เข้าสู่ระบบ
+                else
+                  button(type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown") คุณ #{email}
+                  ul(class="dropdown-menu")
+                    a(class="dropdown-item" href="/UsersHistory") ข้อมูลการจอง
+                    a(class="dropdown-item" href="/UsersLogout") ออกจากระบบ
 
       block content 
       //- div(class="cookie" id="cookie" style="")
@@ -49,10 +75,13 @@ html(lang="en")
       //-       button(href="#" id="button2" class="btn btn-danger btn-sm") ไม่ยอมรับ
       
 
-      footer(class="mb-0 bg-light text-center text-lg-start")
-        div(class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);")
-            h6 © 2023 : LoveLy
-            a(class="text-dark" href="https://mdbootstrap.com/") LoveLy Hill
+      footer
+        .container
+            .copyright © 2023 Lovely Hill
+        a.scrollTop.back-to-top#back-to-top(style="display: none;", href="javascript:void(0);")
+          span
+              i.fa.fa-angle-up.fa-lg(aria-hidden="true")
+          span Top
 
   script(src="/bootstrap.bundle.min.js")
   script(src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js")

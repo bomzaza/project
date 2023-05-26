@@ -12,7 +12,8 @@ module.exports = async (req, res) => {
             }
             if(results.length <= 0){
                //console.log(result)  
-               return res.redirect('UserLogin')
+               const massag = "อีเมล หรือ รหัสผ่านไม่ถูกต้อง"
+               return res.render('UsersLogin', {massag})
             }   
                //console.log(result)
                req.session.email = email

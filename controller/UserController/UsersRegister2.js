@@ -11,14 +11,14 @@ module.exports = async (req, res) => {
         return res.status(404).send({massage: `not data`})
     }
     if(password != confrimpassword){
-        return res.status(404).send({massage: `password ไม่ตรงกัน`})
+        return res.render('UsersRegister',{massage: `password ไม่ตรงกัน`})
     }
 
     connectionn.query(`SELECT * FROM users WHERE email_user = "${req.body.email}"`,
     function(err, results) {
       //console.log(results.length)
       if (results.length >= 1){
-          return  res.status(404).send({massage: `มีผู้ใช้งานแล้ว ${err}`})
+          return  res.render('UsersRegister', {massage: `มีผู้ใช้งานแล้ว ${err}`})
       }
           users.createUsers({req})
           res.status(201).redirect('/UserLogin')

@@ -18,7 +18,7 @@ module.exports = {
            )
     },
     showRoom () {
-      connectionn.query(`SELECT * FROM ROOM`,
+      connectionn.query(`SELECT * FROM room`,
        (err, results) => {
         return results
         }

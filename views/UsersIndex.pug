@@ -53,6 +53,12 @@ block content
 
 
         div.container
+            if massage
+                section.blog-block
+                    .container
+                        .row.offspace-45.card
+                            .view-set-block.m-2
+                                div(class="alert alert-danger" role="alert") #{massage}
         if !results
 
         else

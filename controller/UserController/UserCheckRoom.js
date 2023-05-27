@@ -21,7 +21,7 @@ module.exports = (req, res) => {
                     if(results.length > 0){
                         return res.render('UsersIndex', {email: req.session.email ,id: req.session.id_user, name_user: req.session.name_user, results})
                     }
-                        return res.json({massage: err})
+                        return res.render('UsersIndex',{massage: "ไม่มีห้องว่างโปรด โทรเบอร์ติดต่อ 093-6079126, 098-9359469 "})
                } catch (error) {
                 return res.status(500).json({massage: `กาก`})
                }

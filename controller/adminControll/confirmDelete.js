@@ -4,7 +4,7 @@ module.exports = (req, res) => {
     //console.log(id)
     if(id){
         room.daleteFromUser(id)
-        console.log(id)
+        //console.log(id)
         res.redirect('/admin')
     }
 }

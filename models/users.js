@@ -17,7 +17,7 @@ module.exports = {
               'INSERT INTO `reserve`(`id_user`,`name`, `phon`, `day_start`, `day_end`, `id_name_reserve`, `status_room`, `id_room`) values (?, ?, ?, ?, ?, ?, ?, ?)',
               [id_user,userscustomer, phoncustomer, dateStart, dateEnd, 0, 1, idroom],
               function(err, results) {
-              console.log(results);
+              //console.log(results);
             }
           )
         }

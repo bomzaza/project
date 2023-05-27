@@ -6,8 +6,8 @@ module.exports = async (req, res) => {
     const dateStart = req.body.dateStart
     const dateEnd = req.body.dateEnd
     const idroom = req.body.idroom
-    console.log(id_user)
-    console.log(userscustomer)
+    //console.log(id_user)
+    //console.log(userscustomer)
     await users.reserve(id_user,userscustomer,phoncustomer,dateStart,dateEnd,idroom)
     res.redirect('/UsersHistory')
     // res.render('UsersHistory')

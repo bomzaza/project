@@ -6,7 +6,7 @@ module.exports =   (req, res) => {
   connectionn.query(`SELECT * FROM ROOM`,
        (err, results) => {
         //res.json(results)
-        res.render('seting', {results})
+        res.render('allSeting', {results})
         }
       ) 
 }

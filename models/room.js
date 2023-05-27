@@ -26,8 +26,8 @@ module.exports = {
     },
     reserve(req){
       connectionn.query(
-          'INSERT INTO `reserve`( `name`, `phon`, `day_start`, `day_end`, `id_name_reserve`, `status_room`, `id_room`) values (?, ?, ?, ?, ?, ?, ?)',
-          [req.body.namecustomer, req.body.phoncustomer, req.body.dateStart, req.body.dateEnd, 2, 1, req.body.idroom],
+          'INSERT INTO `reserve`( `id_user`,`name`, `phon`, `day_start`, `day_end`, `id_name_reserve`, `status_room`, `id_room`) values (?, ?, ?, ?, ?, ?, ?, ?)',
+          [0,req.body.namecustomer, req.body.phoncustomer, req.body.dateStart, req.body.dateEnd, 2, 1, req.body.idroom],
           function(err, results) {
           //console.log(results);
         }

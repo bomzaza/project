@@ -1,12 +1,12 @@
 const connectionn = require('../server')
 
 module.exports = { 
-    createRoom ({req,pathImg}) {
+    createRoom ({req,pathImg1,pathImg2,pathImg3,pathImg4,pathImg5}) {
         connectionn.query(
-            'INSERT INTO `room`( `name_room`, `detail_room`, `price_room`, `img`, `id_room_type`) values (?, ?, ?, ?, ?)',
-            [req.body.NameRoom, req.body.DetailRoom, req.body.priceRoom, pathImg, req.body.TypeRoom],
+            'INSERT INTO `room`( `name_room`, `detail_room`, `price_room`, `img1`,`img2`,`img3`,`img4`,`img5`, `id_room_type`) values (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            [req.body.NameRoom, req.body.DetailRoom, req.body.priceRoom, pathImg1,pathImg2,pathImg3,pathImg4,pathImg5, req.body.TypeRoom],
             function(err, results) {
-              console.log('kuy',results);
+              //console.log('kuy',results);
             }
           )
     },

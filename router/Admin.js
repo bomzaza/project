@@ -40,7 +40,7 @@ router.post('/confirm/sucsess',mustLoginAdmin, require('../controller/adminContr
 //manage room
 router.get('/newRoom',mustLoginAdmin, require('../controller/adminControll/RoomNew'))
 router.get('/:id/delete',mustLoginAdmin, require('../controller/adminControll/RoomDelete'))
-router.post('/createRoom',upload.single('img'), require('../controller/adminControll/RoomCreate'))
+router.post('/createRoom',upload.array('img',5), require('../controller/adminControll/RoomCreate'))
 //router.delete('/deleteRoom/:id', require('../controller/adminControll/RoomCreate'))
 
 

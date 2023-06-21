@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2023 at 05:51 PM
+-- Generation Time: Jun 21, 2023 at 06:34 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -38,7 +38,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `username`, `password`) VALUES
-(1, 'admin', 'passlovelyhill');
+(1, 'admin', '1234');
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,6 @@ CREATE TABLE `reserve` (
 --
 
 INSERT INTO `reserve` (`id_reserve`, `id_user`, `name`, `phon`, `day_start`, `day_end`, `id_name_reserve`, `status_room`, `id_room`, `create_date`) VALUES
-(18, 0, 'ken', '0874521335', '2023-08-02', '2023-08-03', 0, 1, 28, '2023-04-28 22:38:26'),
 (20, 20, 'แมว', '7879789789', '2023-03-18', '2023-03-19', 1, 1, 24, '2023-04-29 00:05:54'),
 (23, 0, 'bbbb', '7879789789', '2023-04-05', '2023-04-06', 2, 1, 24, '2023-04-05 11:40:09'),
 (24, 20, 'อั้ม', '0998754325', '2023-04-05', '2023-04-06', 2, 1, 29, '2023-04-29 00:06:01'),
@@ -72,9 +71,12 @@ INSERT INTO `reserve` (`id_reserve`, `id_user`, `name`, `phon`, `day_start`, `da
 (26, 0, 'bom', '5555555555', '2023-04-28', '2023-04-29', 2, 1, 24, '2023-04-28 22:37:59'),
 (27, 18, 'banlang', '5555555555', '2023-05-01', '2023-05-02', 2, 1, 2, '2023-05-01 18:46:36'),
 (28, 18, 'banlang', '0993278421', '2023-05-01', '2023-05-02', 1, 1, 1, '2023-05-01 18:47:29'),
-(29, 18, 'banlang', '0993278421', '2023-05-01', '2023-05-02', 0, 1, 1, '2023-05-01 18:48:21'),
-(30, 18, 'banlang', '0874521335', '2023-05-01', '2023-05-02', 0, 1, 24, '2023-05-01 19:01:44'),
-(38, 23, 'kk9', '0000000000', '2023-05-22', '2023-05-23', 1, 1, 24, '2023-05-01 23:14:45');
+(38, 23, 'kk9', '0000000000', '2023-05-22', '2023-05-23', 1, 1, 24, '2023-05-01 23:14:45'),
+(47, 18, 'banlang', '7777777777', '2023-05-23', '2023-05-24', 0, 1, 24, '2023-05-23 19:42:43'),
+(48, 0, 'bom', '0993278421', '2023-05-30', '2023-05-31', 2, 1, 36, '2023-05-28 05:14:59'),
+(49, 0, 'bom', '0993278421', '2023-06-01', '2023-06-02', 2, 1, 36, '2023-05-28 05:19:18'),
+(50, 0, 'bom', '0993278421', '2023-05-01', '2023-05-02', 2, 1, 36, '2023-05-28 05:27:01'),
+(51, 0, 'bom', '0993278421', '2023-05-10', '2023-05-11', 2, 1, 36, '2023-05-28 05:30:50');
 
 -- --------------------------------------------------------
 
@@ -87,7 +89,11 @@ CREATE TABLE `room` (
   `name_room` text NOT NULL,
   `detail_room` text NOT NULL,
   `price_room` int(4) NOT NULL,
-  `img` text NOT NULL,
+  `img1` text NOT NULL,
+  `img2` text NOT NULL,
+  `img3` text NOT NULL,
+  `img4` text NOT NULL,
+  `img5` text NOT NULL,
   `id_room_type` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -95,12 +101,11 @@ CREATE TABLE `room` (
 -- Dumping data for table `room`
 --
 
-INSERT INTO `room` (`id_room`, `name_room`, `detail_room`, `price_room`, `img`, `id_room_type`) VALUES
-(24, 'A1', 'อาหารเช้า ตู้เย็น โทรศัพ', 300, '/uploads/A1.jpg', 1),
-(25, 'A2', 'อาหารเช้า ตู้เย็น โทรศัพ', 300, '/uploads/A2.jpg', 1),
-(26, 'B2', 'อาหารเช้า ตู้เย็น โทรศัพ', 200, '/uploads/B2.jpg', 2),
-(29, 'A501', 'อาหารเช้า ตู้เย็น โทรศัพ', 1500, '/uploads/A501.jpg', 1),
-(30, 'B500', 'อาหารเช้า ตู้เย็น โทรศัพ', 1700, '/uploads/B500.jpg', 1);
+INSERT INTO `room` (`id_room`, `name_room`, `detail_room`, `price_room`, `img1`, `img2`, `img3`, `img4`, `img5`, `id_room_type`) VALUES
+(37, 'B123', 'อาหารเช้า ตู้เย็น โทรศัพ', 1, '/uploads/B123_1.jpg', '/uploads/B123_2.jpg', '/uploads/B123_3.jpg', '/uploads/B123_4.jpg', '/uploads/B123_5.jpg', 1),
+(38, 'A501', 'อาหารเช้า ตู้เย็น โทรศัพ', 2, '/uploads/A501_1.jpg', '/uploads/A501_2.jpg', '/uploads/A501_3.jpg', '/uploads/A501_4.jpg', '/uploads/A501_5.jpg', 1),
+(42, 'B123', 'อาหารเช้า ตู้เย็น โทรศัพ', 5, '/uploads/B123_825153897.jpg', '/uploads/B123_375894508.jpg', '/uploads/B123_844307115.jpg', '/uploads/B123_552139903.jpg', '/uploads/B123_726807467.jpg', 1),
+(45, 'B123', 'อาหารเช้า ตู้เย็น โทรศัพ', 1, '/uploads/B123_1_993042717.jpg', '/uploads/B123_2_156273754.jpg', '/uploads/B123_3_426033465.jpg', '/uploads/B123_4_452601816.jpg', '/uploads/B123_5_612348736.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -147,7 +152,8 @@ INSERT INTO `users` (`id_user`, `name_user`, `phon_number`, `email_user`, `passw
 (20, 'นคร', '0888888888', 'nems.kk9@gmail.com', '1234'),
 (21, 'หำ', '0878787878', 'bom123@gmail.com', '55555'),
 (22, 'แมน', '0888888888', 'man@gmail.com', '1'),
-(23, 'kk9', '0878787878', 'kk9@gmail.com', '7');
+(23, 'kk9', '0878787878', 'kk9@gmail.com', '7'),
+(24, 'aa', '0888888888', 'bombanlaaang2539@gmail.com', 'a');
 
 --
 -- Indexes for dumped tables
@@ -197,13 +203,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `reserve`
 --
 ALTER TABLE `reserve`
-  MODIFY `id_reserve` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id_reserve` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `id_room` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_room` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `room_type`
@@ -215,7 +221,7 @@ ALTER TABLE `room_type`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
